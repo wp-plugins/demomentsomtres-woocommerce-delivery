@@ -32,6 +32,7 @@ You can get more information about the component at [DeMomentSomTres Digital Mar
 = Thank you =
 
 This plugin has been fully rewritten and redesigned based on:
+
 * [Order Delivery Date for Woocommerce Lite Version](http://www.tychesoftwares.com/store/free-plugin/order-delivery-date-on-checkout/) and
 * [Woocommerce Delivery Date](http://www.dreamfox.nl)
 
