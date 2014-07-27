@@ -18,13 +18,13 @@ This plugin allows you to improve your customer service by delivering the order 
 
 You can get more information about the component at [DeMomentSomTres Digital Marketing](http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/ "DeMomentSomTres WooCommerce developers")
 
-=== Features ===
+= Features =
 * Delay from purchase
 * Languages included:
 ** Spanish
 ** Catalan
 
-=== Thank you ===
+= Thank you =
 
 This plugin has been fully rewritten and redesigned based on:
 * [Order Delivery Date for Woocommerce Lite Version](http://www.tychesoftwares.com/store/free-plugin/order-delivery-date-on-checkout/) and
@@ -34,7 +34,7 @@ This plugin has been fully rewritten and redesigned based on:
 
 This plugin can be installed as any other plugin if a few requirements are met.
 
-=== Requirements ===
+= Requirements =
 
 This plugin requires:
 
