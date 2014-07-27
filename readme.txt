@@ -19,10 +19,15 @@ This plugin allows you to improve your customer service by delivering the order 
 You can get more information about the component at [DeMomentSomTres Digital Marketing](http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/ "DeMomentSomTres WooCommerce developers")
 
 = Features =
-* Delay from purchase
-* Languages included:
-** Spanish
-** Catalan
+* Delay from purchase to delivery control
+* Days of the week with deliveries
+* Delivery service holidays
+* Delivery hours ranges selection
+* Last purchase time control
+* Configurable date format
+* Customizable intro delivery message
+* Customizable end delivery message
+* Languages included: Spanish, Catalan
 
 = Thank you =
 
