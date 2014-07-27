@@ -1,4 +1,4 @@
-=== DeMomentSomTres Woocommerce Delivery Customization ===
+=== DeMomentSomTres Woocommerce Delivery ===
 Contributors: marcqueralt
 Donate link: http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/
 Tags: woocommerce, delivery, delivery date
