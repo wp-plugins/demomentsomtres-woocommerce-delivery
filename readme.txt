@@ -16,7 +16,7 @@ This plugin will allow the customer to choose an order delivery date on the chec
 
 This plugin allows you to improve your customer service by delivering the order on the customer's chosen date.
 
-You can get more information about the component at [this plugin author's website](http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/ "DeMomentSomTres WooCommerce developers")
+You can get more information about the component at [DeMomentSomTres Digital Marketing](http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/ "DeMomentSomTres WooCommerce developers")
 
 === Features ===
 * Delay from purchase
