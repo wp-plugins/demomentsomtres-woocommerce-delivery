@@ -4,7 +4,7 @@ Donate link: http://demomentsomtres.com/english/wordpress-plugins/woocommerce-de
 Tags: woocommerce, delivery, delivery date
 Requires at least: 3.9.1
 Tested up to: 3.9.1
-Stable tag: head
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,7 @@ This plugin allows you to improve your customer service by delivering the order 
 You can get more information about the component at [DeMomentSomTres Digital Marketing](http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/ "DeMomentSomTres WooCommerce developers")
 
 = Features =
+
 * Delay from purchase to delivery control
 * Days of the week with deliveries
 * Delivery service holidays

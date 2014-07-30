@@ -402,6 +402,7 @@ class DeMomentSomTresWCdeliveryCustomization {
                             maxDate: "<?php echo DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_PLANNING_SCOPE, 3); ?>M",
                             dateFormat: "<?php echo DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_DATE_FORMAT, 'd/mm/yy'); ?>",
                             minDate: <?php echo $this->get_MinimumDelay(); ?>,
+                            defaultDate: <?php echo $this->get_MinimumDelay(); ?>,
                             firstDay: <?php echo DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_FIRST_DAY_OF_WEEK, 1); ?>,
                             beforeShowDay: dms3WCDDDisableDays,
                         }
