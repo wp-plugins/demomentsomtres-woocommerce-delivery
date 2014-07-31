@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DeMomentSomTres Woocommerce Delivery Customization
  * Plugin URI:  http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/
- * Version: 1.0
+ * Version: 1.1
  * Author URI: demomentsomtres.com
  * Author: Marc Queralt
  * Description: Extend Woocommerce plugin to add delivery date on other aspects to checkout
@@ -60,9 +60,11 @@ class DeMomentSomTresWCdeliveryCustomization {
     const OPTION_DELIVERY_HOLIDAYS = 'deliveryHolidays';
     const OPTION_DELIVERY_RANGES = 'deliveryRanges';
     const OPTION_DATE_FORMAT = 'dateFormat';
+    const OPTION_DATE_FORMAT_PHP = 'dateFormatPhp';
     const OPTION_FIRST_DAY_OF_WEEK = 'firstDayOfWeek';
     const OPTION_MESSAGE_TOP_OF_DELIVERY = 'messageTopDelivery';
     const OPTION_MESSAGE_YOU_NEED_HELP = 'messageYouNeedHelp';
+    const OPTION_MESSAGE_CHECKOUT_MESSAGE = 'messageCheckout';
     const CHECKOUT_FIELD_DELIVERY_DATE = 'dms3_wcdd_deliveryDate';
     const CHECKOUT_FIELD_DELIVERY_RANGES = 'dms3_wcdd_deliveryRanges';
     const CHECKOUT_AUX_DELIVERY_RANGES = 'dms3_wcdd_deliveryRangesKeys';
@@ -95,6 +97,9 @@ class DeMomentSomTresWCdeliveryCustomization {
         add_action('woocommerce_checkout_process', array(&$this, 'checkout_process'));
         add_action('woocommerce_thankyou', array(&$this, 'show_delivery_instructions'));
         add_action('woocommerce_email_before_order_table', array(&$this, 'email_delivery_instructions'));
+
+        add_action('woocommerce_before_cart_contents', array(&$this, 'message'));
+        add_action('woocommerce_before_checkout_form', array(&$this, 'message'));
     }
 
     /**
@@ -146,10 +151,12 @@ class DeMomentSomTresWCdeliveryCustomization {
         add_settings_field(self::OPTION_DELIVERY_DAYS, __('Delivery days', self::TEXT_DOMAIN), array(&$this, 'admin_field_delivery_days'), self::PAGE, self::SECTION_WC_DAYS);
         add_settings_field(self::OPTION_DELIVERY_RANGES, __('Delivery ranges', self::TEXT_DOMAIN), array(&$this, 'admin_field_deliveryRanges'), self::PAGE, self::SECTION_WC_DAYS);
         add_settings_field(self::OPTION_DELIVERY_HOLIDAYS, __('Delivery holidays', self::TEXT_DOMAIN), array(&$this, 'admin_field_delivery_holidays'), self::PAGE, self::SECTION_WC_DAYS);
-        add_settings_field(self::OPTION_DATE_FORMAT, __('Date Format', self::TEXT_DOMAIN), array(&$this, 'admin_field_date_format'), self::PAGE, self::SECTION_WC_DAYS);
+        add_settings_field(self::OPTION_DATE_FORMAT, __('Javascript Date Format', self::TEXT_DOMAIN), array(&$this, 'admin_field_date_format'), self::PAGE, self::SECTION_WC_DAYS);
+        add_settings_field(self::OPTION_DATE_FORMAT_PHP, __('php Date Format', self::TEXT_DOMAIN), array(&$this, 'admin_field_date_format_php'), self::PAGE, self::SECTION_WC_DAYS);
 
         add_settings_section(self::SECTION_WC_MESSAGES, __('Customizable Messages', self::TEXT_DOMAIN), array(&$this, 'admin_section_messages'), self::PAGE);
 
+        add_settings_field(self::OPTION_MESSAGE_CHECKOUT_MESSAGE, __('Message at the top of checkout page', self::TEXT_DOMAIN), array(&$this, 'admin_field_MessageCheckout'), self::PAGE, self::SECTION_WC_MESSAGES);
         add_settings_field(self::OPTION_MESSAGE_TOP_OF_DELIVERY, __('Top of delivery customization', self::TEXT_DOMAIN), array(&$this, 'admin_field_MessagetopOfDelivery'), self::PAGE, self::SECTION_WC_MESSAGES);
         add_settings_field(self::OPTION_MESSAGE_YOU_NEED_HELP, __('Do You Need Help', self::TEXT_DOMAIN), array(&$this, 'admin_field_MessageYouNeedHelp'), self::PAGE, self::SECTION_WC_MESSAGES);
     }
@@ -198,9 +205,11 @@ class DeMomentSomTresWCdeliveryCustomization {
         $html = array();
         $html[self::OPTION_MESSAGE_TOP_OF_DELIVERY] = $input[self::OPTION_MESSAGE_TOP_OF_DELIVERY];
         $html[self::OPTION_MESSAGE_YOU_NEED_HELP] = $input[self::OPTION_MESSAGE_YOU_NEED_HELP];
+        $html[self::OPTION_MESSAGE_CHECKOUT_MESSAGE] = $input[self::OPTION_MESSAGE_CHECKOUT_MESSAGE];
         $input = DeMomentSomTresTools::adminHelper_esc_attr($input);
         $input[self::OPTION_MESSAGE_TOP_OF_DELIVERY] = $html[self::OPTION_MESSAGE_TOP_OF_DELIVERY];
         $input[self::OPTION_MESSAGE_YOU_NEED_HELP] = $html[self::OPTION_MESSAGE_YOU_NEED_HELP];
+        $input[self::OPTION_MESSAGE_CHECKOUT_MESSAGE] = $html[self::OPTION_MESSAGE_CHECKOUT_MESSAGE];
         return $input;
     }
 
@@ -275,7 +284,20 @@ class DeMomentSomTresWCdeliveryCustomization {
             'class' => 'regular-text'
         ));
         echo "<p style='font-size:0.8em;'>"
-        . __('If order happens after this time, an additional day will be added to delivery date.', self::TEXT_DOMAIN);
+        . __('Date format to use in the datepicker.', self::TEXT_DOMAIN);
+    }
+
+    /**
+     * @since 1.0
+     */
+    function admin_field_date_format_php() {
+        $name = self::OPTION_DATE_FORMAT_PHP;
+        $value = DeMomentSomTresTools::get_option(self::OPTIONS, $name, 'j/m/y');
+        DeMomentSomTresTools::adminHelper_inputArray(self::OPTIONS, $name, $value, array(
+            'class' => 'regular-text'
+        ));
+        echo "<p style='font-size:0.8em;'>"
+        . __('Date format for php equivalent to the javascript one.', self::TEXT_DOMAIN);
     }
 
     /**
@@ -388,6 +410,24 @@ class DeMomentSomTresWCdeliveryCustomization {
     }
 
     /**
+     * @since 1.1
+     */
+    function admin_field_messageCheckout() {
+        $name = self::OPTION_MESSAGE_CHECKOUT_MESSAGE;
+        $value = DeMomentSomTresTools::get_option(self::OPTIONS, $name);
+        DeMomentSomTresTools::adminHelper_inputArray(self::OPTIONS, $name, $value, array(
+            'type' => 'textarea',
+            'rows' => 5,
+            'class' => 'regular-text'
+        ));
+        echo "<p style='font-size:0.8em;'>"
+        . __('Message to be shown every time that someone enters checkout', self::TEXT_DOMAIN)
+        . '<br/>'
+        . __('HTML allowed', self::TEXT_DOMAIN)
+        . '</p>';
+    }
+
+    /**
      * @since 1.0
      */
     function checkout_customization($checkout) {
@@ -397,12 +437,11 @@ class DeMomentSomTresWCdeliveryCustomization {
         ?>
         <script language="javascript">jQuery(document).ready(function() {
                 jQuery("#<?php echo self::CHECKOUT_FIELD_DELIVERY_DATE; ?>").width("150px");
-                jQuery("#<?php echo self::CHECKOUT_FIELD_DELIVERY_DATE; ?>").val("").datepicker(
+                jQuery("#<?php echo self::CHECKOUT_FIELD_DELIVERY_DATE; ?>").val("<?php echo $this->get_firstDay(); ?>").datepicker(
                         {
                             maxDate: "<?php echo DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_PLANNING_SCOPE, 3); ?>M",
                             dateFormat: "<?php echo DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_DATE_FORMAT, 'd/mm/yy'); ?>",
                             minDate: <?php echo $this->get_MinimumDelay(); ?>,
-                            defaultDate: <?php echo $this->get_MinimumDelay(); ?>,
                             firstDay: <?php echo DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_FIRST_DAY_OF_WEEK, 1); ?>,
                             beforeShowDay: dms3WCDDDisableDays,
                         }
@@ -437,7 +476,8 @@ class DeMomentSomTresWCdeliveryCustomization {
                 'label' => __('Choose a delivery Date', self::TEXT_DOMAIN),
                 'required' => false,
                 'placeholder' => __('Delivery Date', self::TEXT_DOMAIN),
-                    ), $checkout->get_value(self::CHECKOUT_FIELD_DELIVERY_DATE));
+                    ), $checkout->get_value(self::CHECKOUT_FIELD_DELIVERY_DATE)
+            );
             ?>
             <?php
             $deliveryRanges = DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_DELIVERY_RANGES, '');
@@ -450,7 +490,7 @@ class DeMomentSomTresWCdeliveryCustomization {
                     woocommerce_form_field(self::CHECKOUT_AUX_DELIVERY_RANGES . "[$k]", array(
                         'type' => 'checkbox',
                         'label' => $range,
-                            )
+                            ), 1
                     );
                     woocommerce_form_field(self::CHECKOUT_TXT_DELIVERY_RANGES . "[$k]", array(
                         'type' => 'text',
@@ -461,49 +501,46 @@ class DeMomentSomTresWCdeliveryCustomization {
                 echo '</div>';
             endif;
             ?>
-            <div class="form-row form-row-first"  style="clear:both;">
+            <div class="form-row" style="clear:both;">
                 <h4>
                     <?php _e('Deliver to...', self::TEXT_DOMAIN); ?>
                 </h4>
+            </div>
+            <div class="form-row form-row-first">
                 <?php
                 woocommerce_form_field(self::CHECKOUT_FIELD_CONTACT1, array(
                     'type' => 'text',
 //                'class' => array('form-row-first'),
-                    'label' => __('Contact', self::TEXT_DOMAIN),
+                    'label' => __('Main Contact', self::TEXT_DOMAIN),
                     'required' => false,
-                    'placeholder' => __('Contact name', self::TEXT_DOMAIN),
+                    'placeholder' => __('Name', self::TEXT_DOMAIN),
                         ), $checkout->get_value(self::CHECKOUT_FIELD_CONTACT1));
                 ?>
                 <?php
                 woocommerce_form_field(self::CHECKOUT_FIELD_PHONE1, array(
                     'type' => 'text',
 //                'class' => array('form-row-last'),
-                    'label' => __('Phone', self::TEXT_DOMAIN),
+                    'label' => __('Main phone', self::TEXT_DOMAIN),
                     'required' => false,
                     'placeholder' => __('Contact phone', self::TEXT_DOMAIN),
                         ), $checkout->get_value(self::CHECKOUT_FIELD_PHONE1));
                 ?>
             </div>
             <div class="form-row form-row-last">
-                <p style="clear:both;">
-                    <strong>
-                        <?php _e('If it cannot be delivered, try...', self::TEXT_DOMAIN); ?>
-                    </strong>
-                </p>
                 <?php
                 woocommerce_form_field(self::CHECKOUT_FIELD_CONTACT2, array(
                     'type' => 'text',
 //                'class' => array('form-row-first'),
-                    'label' => __('Contact', self::TEXT_DOMAIN),
+                    'label' => __('Alternative Contact', self::TEXT_DOMAIN),
                     'required' => false,
-                    'placeholder' => __('Contact name', self::TEXT_DOMAIN),
+                    'placeholder' => __('Name', self::TEXT_DOMAIN),
                         ), $checkout->get_value(self::CHECKOUT_FIELD_CONTACT2));
                 ?>
                 <?php
                 woocommerce_form_field(self::CHECKOUT_FIELD_PHONE2, array(
                     'type' => 'text',
 //                'class' => array('form-row-last'),
-                    'label' => __('Phone', self::TEXT_DOMAIN),
+                    'label' => __('Alterantive Phone', self::TEXT_DOMAIN),
                     'required' => false,
                     'placeholder' => __('Contact phone', self::TEXT_DOMAIN),
                         ), $checkout->get_value(self::CHECKOUT_FIELD_PHONE2));
@@ -557,9 +594,13 @@ class DeMomentSomTresWCdeliveryCustomization {
      * @since 1.0
      */
     function checkout_process() {
-//        global $woocommerce;
-//        if (!$_POST[self::CHECKOUT_FIELD_DELIVERY_DATE])
-//            $woocommerce->add_error(__('Please enter a Delivery Date', self::TEXT_DOMAIN));
+        global $woocommerce;
+        if (!$_POST[self::CHECKOUT_FIELD_DELIVERY_DATE])
+            $woocommerce->add_error(__('Please enter a Delivery Date', self::TEXT_DOMAIN));
+        if (!$_POST[self::CHECKOUT_FIELD_CONTACT1] || !$_POST[self::CHECKOUT_FIELD_PHONE1])
+            $woocommerce->add_error(__('Please enter a Main Contact and a Phone Number', self::TEXT_DOMAIN));
+        if (!$_POST[self::CHECKOUT_AUX_DELIVERY_RANGES])
+            $woocommerce->add_error(__('Select at least one Delivery Range', self::TEXT_DOMAIN));
     }
 
     /**
@@ -578,6 +619,21 @@ class DeMomentSomTresWCdeliveryCustomization {
             $delay = $delay + 1;
         endif;
         return $delay;
+    }
+
+    /**
+     * First available delivery day
+     * @since 1.1
+     * @return integer days
+     */
+    function get_firstDay() {
+        $delay = self::get_MinimumDelay();
+        $timeToServe = current_time('timestamp', false) + $delay * 3600 * 24;
+        $theDate = getdate($timeToServe);
+        $dayToServe = mktime(0, 0, 0, $theDate['mon'], $theDate['mday'], $theDate['year']);
+        $format = DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_DATE_FORMAT_PHP);
+        $result = date(DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_DATE_FORMAT_PHP), $dayToServe);
+        return $result;
     }
 
     /**
@@ -648,6 +704,23 @@ class DeMomentSomTresWCdeliveryCustomization {
         endif;
         if (!empty($moreHelp)):
             echo $moreHelp;
+        endif;
+    }
+
+    /**
+     * Prints the message
+     * @since 1.1
+     * @global type $woocommerce
+     */
+    function message() {
+        global $woocommerce;
+        $message = DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_MESSAGE_CHECKOUT_MESSAGE);
+        if ($message):
+            ?>
+            <div class="woocommerce-info">
+                <?php echo $message; ?>
+            </div>
+            <?php
         endif;
     }
 
