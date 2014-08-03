@@ -29,6 +29,7 @@ You can get more information about the component at [DeMomentSomTres Digital Mar
 * Customizable message on top of cart
 * Customizable intro delivery message
 * Customizable end delivery message
+* Payment information added to email
 * Languages included: Spanish, Catalan
 
 = Thank you =
@@ -58,6 +59,9 @@ TBD
 TBD
 
 == Changelog ==
+
+= 1.2 =
+* Payment information added to email
 
 = 1.1 =
 * Checkout message

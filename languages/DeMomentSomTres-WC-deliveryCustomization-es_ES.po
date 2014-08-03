@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: DeMomentSomTres Woocommerce Delivery Customization v1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-07-31 08:46:05+0000\n"
+"PO-Revision-Date: 2014-08-03 15:46:45+0000\n"
 "Last-Translator: Marc Queralt <marc@demomentsomtres.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -238,27 +238,27 @@ msgstr "Entregar a..."
 msgid "Contact phone"
 msgstr "Teléfono de contacto"
 
-#: demomentsomtres-WC-delivery-custom.php:682
+#: demomentsomtres-WC-delivery-custom.php:683
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "As soon as possible"
 msgstr "Sin fecha específica"
 
-#: demomentsomtres-WC-delivery-custom.php:688
+#: demomentsomtres-WC-delivery-custom.php:689
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "Delivery information"
 msgstr "Información de entrega"
 
-#: demomentsomtres-WC-delivery-custom.php:689
+#: demomentsomtres-WC-delivery-custom.php:690
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "Date"
 msgstr "Fecha"
 
-#: demomentsomtres-WC-delivery-custom.php:696
+#: demomentsomtres-WC-delivery-custom.php:697
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "We will try to deliver this order to"
 msgstr "Intentaremos entregar la compra a"
 
-#: demomentsomtres-WC-delivery-custom.php:701
+#: demomentsomtres-WC-delivery-custom.php:702
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "If we cannot reach the first contact we will try to deliver the order to"
 msgstr "Si no se consigue contactar con la primera persona se intentará entregar la compra a"
@@ -333,4 +333,14 @@ msgstr "Es necesario un contacto principal con teléfono"
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "Select at least one Delivery Range"
 msgstr "Es necesario seleccionar por lo menos una franja horaria para la entrega"
+
+#: demomentsomtres-WC-delivery-custom.php:707
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Payment"
+msgstr "Pago"
+
+#: demomentsomtres-WC-delivery-custom.php:708
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Payment Method"
+msgstr "Método de pago"
 

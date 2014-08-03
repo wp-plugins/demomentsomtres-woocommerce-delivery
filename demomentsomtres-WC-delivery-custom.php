@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DeMomentSomTres Woocommerce Delivery Customization
  * Plugin URI:  http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/
- * Version: 1.1
+ * Version: 1.2
  * Author URI: demomentsomtres.com
  * Author: Marc Queralt
  * Description: Extend Woocommerce plugin to add delivery date on other aspects to checkout
@@ -663,13 +663,14 @@ class DeMomentSomTresWCdeliveryCustomization {
      * @since 1.0
      */
     function email_delivery_instructions($order, $is_admin_email) {
-        $this->show_delivery_instructions($order->id);
+        $this->show_delivery_instructions($order->id, true);
     }
 
     /**
      * @since 1.0
      */
-    function show_delivery_instructions($orderid) {
+    function show_delivery_instructions($orderid, $isMail = false) {
+        $payment_method = get_post_meta($orderid,'_payment_method_title');
         $delivery_date = get_post_meta($orderid, self::CHECKOUT_FIELD_DELIVERY_DATE, true);
         $delivery_ranges = get_post_meta($orderid, self::CHECKOUT_FIELD_DELIVERY_RANGES, true);
         $delivery_contact_1 = get_post_meta($orderid, self::CHECKOUT_FIELD_CONTACT1, true);
@@ -701,6 +702,10 @@ class DeMomentSomTresWCdeliveryCustomization {
             echo '<p>' . __('If we cannot reach the first contact we will try to deliver the order to', self::TEXT_DOMAIN);
             echo ' ' . $delivery_contact_2 . ' (' . $delivery_phone_2 . ')';
             echo '</p>';
+        endif;
+        if ($isMail):
+            echo '<h2>' . __('Payment',self::TEXT_DOMAIN) . '</h2>';
+            echo '<p>' . __('Payment Method',self::TEXT_DOMAIN) . ': <strong>' . $payment_method[0] .'</strong></p>';
         endif;
         if (!empty($moreHelp)):
             echo $moreHelp;

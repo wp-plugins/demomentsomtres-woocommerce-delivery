@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: DeMomentSomTres Woocommerce Delivery Customization v1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-07-31 08:40:12+0000\n"
+"PO-Revision-Date: 2014-08-03 15:45:37+0000\n"
 "Last-Translator: admin <dms3@demomentsomtres.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -238,27 +238,27 @@ msgstr "Missatge que es mostrarà al peu de les instruccions de lliurament encar
 msgid "If you set an url, please put it as an ABSOLUTE address"
 msgstr "Si introduiu un enllaç, assegureu-vos que la url sigui ABSOLUTA i no relativa"
 
-#: demomentsomtres-WC-delivery-custom.php:682
+#: demomentsomtres-WC-delivery-custom.php:683
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "As soon as possible"
 msgstr "Tan aviat com puguem"
 
-#: demomentsomtres-WC-delivery-custom.php:688
+#: demomentsomtres-WC-delivery-custom.php:689
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "Delivery information"
 msgstr "Informació de lliurament"
 
-#: demomentsomtres-WC-delivery-custom.php:689
+#: demomentsomtres-WC-delivery-custom.php:690
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "Date"
 msgstr "Dia"
 
-#: demomentsomtres-WC-delivery-custom.php:696
+#: demomentsomtres-WC-delivery-custom.php:697
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "We will try to deliver this order to"
 msgstr "Intentarem lliurar la comanda a"
 
-#: demomentsomtres-WC-delivery-custom.php:701
+#: demomentsomtres-WC-delivery-custom.php:702
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "If we cannot reach the first contact we will try to deliver the order to"
 msgstr "Si no aconseguissim fer el lliurament al primer contacte, intentarem lliurar la comanda a"
@@ -333,4 +333,14 @@ msgstr "Cal informar com a mínim un contacte principal i el seu telèfon"
 #@ DeMomentSomTres-WC-deliveryCustomization
 msgid "Select at least one Delivery Range"
 msgstr "Cal escollir com a mínim una franja horària pel lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:707
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Payment"
+msgstr "Pagament"
+
+#: demomentsomtres-WC-delivery-custom.php:708
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Payment Method"
+msgstr "Mètode de pagament"
 
