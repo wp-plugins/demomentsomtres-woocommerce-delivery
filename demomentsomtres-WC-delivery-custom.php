@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DeMomentSomTres Woocommerce Delivery Customization
  * Plugin URI:  http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/
- * Version: 1.2
+ * Version: 1.3
  * Author URI: demomentsomtres.com
  * Author: Marc Queralt
  * Description: Extend Woocommerce plugin to add delivery date on other aspects to checkout
@@ -631,9 +631,35 @@ class DeMomentSomTresWCdeliveryCustomization {
         $timeToServe = current_time('timestamp', false) + $delay * 3600 * 24;
         $theDate = getdate($timeToServe);
         $dayToServe = mktime(0, 0, 0, $theDate['mon'], $theDate['mday'], $theDate['year']);
-        $format = DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_DATE_FORMAT_PHP);
+        while (!$this->isValidServiceDay($dayToServe)):
+            $dayToServe = $dayToServe + 24 * 3600;
+        endwhile;
         $result = date(DeMomentSomTresTools::get_option(self::OPTIONS, self::OPTION_DATE_FORMAT_PHP), $dayToServe);
         return $result;
+    }
+
+    /**
+     * Checks if the provided day is a valid delivery date
+     * @since 1.3
+     */
+    function isValidServiceDay($timestamp) {
+        $date = getdate($timestamp);
+        $weekdaysToServeString = $this->get_deliveryDaysToDisable();
+        $weekdaysToServe = explode(',', $weekdaysToServeString);
+        if (!in_array($date['wday'], $weekdaysToServe)):
+            return false;
+        else:
+            $holidays = $this->get_deliveryHolidays();
+            $aHolidays = explode(',', $holidays);
+            foreach ($aHolidays as $stringday):
+                $adate = DateTime::createFromFormat('"Y-n-j"', $stringday);
+                $stdate = getdate(date_timestamp_get($adate));
+                if (($date['year'] == $stdate['year']) && ($date['yday'] == $stdate['yday'])):
+                    return false;
+                endif;
+            endforeach;
+        endif;
+        return true;
     }
 
     /**
@@ -670,7 +696,7 @@ class DeMomentSomTresWCdeliveryCustomization {
      * @since 1.0
      */
     function show_delivery_instructions($orderid, $isMail = false) {
-        $payment_method = get_post_meta($orderid,'_payment_method_title');
+        $payment_method = get_post_meta($orderid, '_payment_method_title');
         $delivery_date = get_post_meta($orderid, self::CHECKOUT_FIELD_DELIVERY_DATE, true);
         $delivery_ranges = get_post_meta($orderid, self::CHECKOUT_FIELD_DELIVERY_RANGES, true);
         $delivery_contact_1 = get_post_meta($orderid, self::CHECKOUT_FIELD_CONTACT1, true);
@@ -696,16 +722,15 @@ class DeMomentSomTresWCdeliveryCustomization {
         if (!empty($delivery_contact_1)):
             echo '<p>' . __('We will try to deliver this order to', self::TEXT_DOMAIN);
             echo ' ' . $delivery_contact_1 . ' (' . $delivery_phone_1 . ')';
-            echo '</p>';
-        endif;
-        if (!empty($delivery_contact_2)):
-            echo '<p>' . __('If we cannot reach the first contact we will try to deliver the order to', self::TEXT_DOMAIN);
-            echo ' ' . $delivery_contact_2 . ' (' . $delivery_phone_2 . ')';
+            if (!empty($delivery_contact_2)):
+                echo ' ' . __('if we cannot reach the first contact we will try to deliver the order to', self::TEXT_DOMAIN);
+                echo ' ' . $delivery_contact_2 . ' (' . $delivery_phone_2 . ')';
+            endif;
             echo '</p>';
         endif;
         if ($isMail):
-            echo '<h2>' . __('Payment',self::TEXT_DOMAIN) . '</h2>';
-            echo '<p>' . __('Payment Method',self::TEXT_DOMAIN) . ': <strong>' . $payment_method[0] .'</strong></p>';
+            echo '<h2>' . __('Payment', self::TEXT_DOMAIN) . '</h2>';
+            echo '<p>' . __('Payment Method', self::TEXT_DOMAIN) . ': <strong>' . $payment_method[0] . '</strong></p>';
         endif;
         if (!empty($moreHelp)):
             echo $moreHelp;

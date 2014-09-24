@@ -26,10 +26,8 @@ You can get more information about the component at [DeMomentSomTres Digital Mar
 * Delivery hours ranges selection
 * Last purchase time control
 * Configurable date format
-* Customizable message on top of cart
 * Customizable intro delivery message
 * Customizable end delivery message
-* Payment information added to email
 * Languages included: Spanish, Catalan
 
 = Thank you =
@@ -60,13 +58,8 @@ TBD
 
 == Changelog ==
 
-= 1.2 =
-* Payment information added to email
-
-= 1.1 =
-* Checkout message
-* Error control in checkout
-* Suggested delivery date
+= 1.3 =
+* Improved first day selection algorithm to prevent inconsistences
 
 = 1.0 =
 * First release
