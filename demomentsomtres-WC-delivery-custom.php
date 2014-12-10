@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DeMomentSomTres Woocommerce Delivery Customization
  * Plugin URI:  http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/
- * Version: 1.3
+ * Version: 1.3.1
  * Author URI: demomentsomtres.com
  * Author: Marc Queralt
  * Description: Extend Woocommerce plugin to add delivery date on other aspects to checkout

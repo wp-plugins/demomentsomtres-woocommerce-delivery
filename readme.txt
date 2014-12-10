@@ -58,6 +58,9 @@ TBD
 
 == Changelog ==
 
+= 1.3.1 =
+* Catalan Translation: canvi de la persona de segona del plural a segona del singular
+
 = 1.3 =
 * Improved first day selection algorithm to prevent inconsistences
 
