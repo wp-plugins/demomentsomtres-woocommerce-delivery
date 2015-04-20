@@ -1,0 +1,346 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DeMomentSomTres Woocommerce Delivery Customization v1.2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-12-10 16:24:03+0000\n"
+"Last-Translator: admin <dms3@demomentsomtres.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: demomentsomtres-WC-delivery-custom.php:29
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "The DeMomentSomTres WooCommerce Delivery Customization plugin requires the free DeMomentSomTres Tools plugin."
+msgstr "El component DeMomentSomTres WooCommerce Delivery Customization requereix del component lliure DeMomentSomTres Tools."
+
+#: demomentsomtres-WC-delivery-custom.php:31
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Download it here"
+msgstr "Descarregar-lo aquí"
+
+#: demomentsomtres-WC-delivery-custom.php:41
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "The DeMomentSomTres WooCommerce Delivery Customization plugin requires WooCommerce."
+msgstr "El component DeMomentSomTres WooCommerce Delivery Customization necessita de WooCommerce."
+
+#: demomentsomtres-WC-delivery-custom.php:116
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "DeMomentSomTres Delivery Customization"
+msgstr "DeMomentSomTres Personalització del lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:125
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "DeMomentSomTres WooCommerce Delivery Customization"
+msgstr "DeMomentSomTres WooCommerce Delivery Customization"
+
+#: demomentsomtres-WC-delivery-custom.php:130
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Save Changes"
+msgstr "Desar els canvis"
+
+#: demomentsomtres-WC-delivery-custom.php:134
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Options"
+msgstr "Opcions"
+
+#: demomentsomtres-WC-delivery-custom.php:146
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Main parameters"
+msgstr "Paràmetres principals"
+
+#: demomentsomtres-WC-delivery-custom.php:148
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Days after"
+msgstr "Dies més tard"
+
+#: demomentsomtres-WC-delivery-custom.php:149
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Latest order hour"
+msgstr "Darrera hora de comanda"
+
+#: demomentsomtres-WC-delivery-custom.php:152
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Delivery ranges"
+msgstr "Rangs de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:220
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Main parameters to control delivery date"
+msgstr "Principals paràmetres per controlar la data de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:240
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Delivery date must be after, at least this number of days."
+msgstr "La data de lliurament no pot ser abans de x dies."
+
+#: demomentsomtres-WC-delivery-custom.php:259
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "If order happens after this time, an additional day will be added to delivery date."
+msgstr "Si la comanda es produeix més tard d'aquesta hora, s'afegirà un dia més al lliurament."
+
+#: demomentsomtres-WC-delivery-custom.php:274
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Put all the delivery ranges in a semicolumn (;) separated list"
+msgstr "Llista de les franges de lliurament separades per ; (punt i coma)."
+
+#: demomentsomtres-WC-delivery-custom.php:465
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Delivery instructions"
+msgstr "Instruccions de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:379
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Please give as much information as possible in order to inform our delivery boy how and when to deliver your purchase"
+msgstr "Proporciona tota la informació que cregis necessària per facilitar que el nostre repartidor pugui lliurar-te correctament la compra."
+
+#: demomentsomtres-WC-delivery-custom.php:476
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Choose a delivery Date"
+msgstr "Escull una data de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:478
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Delivery Date"
+msgstr "Data de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:486
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Tell us which time is the best to get the delivery"
+msgstr "Quina és la millor hora per portar-vos la compra a casa?"
+
+#: demomentsomtres-WC-delivery-custom.php:506
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Deliver to..."
+msgstr "La comanda s'ha de lliurar a..."
+
+#: demomentsomtres-WC-delivery-custom.php:525
+#: demomentsomtres-WC-delivery-custom.php:545
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Contact phone"
+msgstr "Telèfon"
+
+#: demomentsomtres-WC-delivery-custom.php:150
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Months to show in delivery calendar"
+msgstr "Mesos que es mostraran al calendari de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:151
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Delivery days"
+msgstr "Dies de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:153
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Delivery holidays"
+msgstr "Festius en el lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:157
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Customizable Messages"
+msgstr "Missatges personalitzables"
+
+#: demomentsomtres-WC-delivery-custom.php:160
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Top of delivery customization"
+msgstr "Missatge per la capçalera de personalització"
+
+#: demomentsomtres-WC-delivery-custom.php:161
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Do You Need Help"
+msgstr "Necessites ajuda?"
+
+#: demomentsomtres-WC-delivery-custom.php:227
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Messages to show in the delivery area"
+msgstr "Missatges que es mostraran a la zona de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:329
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Sunday"
+msgstr "Diumenge"
+
+#: demomentsomtres-WC-delivery-custom.php:333
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Monday"
+msgstr "Dilluns"
+
+#: demomentsomtres-WC-delivery-custom.php:337
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Tuesday"
+msgstr "Dimarts"
+
+#: demomentsomtres-WC-delivery-custom.php:341
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Wednesday"
+msgstr "Dimecres"
+
+#: demomentsomtres-WC-delivery-custom.php:345
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Thursday"
+msgstr "Dijous"
+
+#: demomentsomtres-WC-delivery-custom.php:349
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Friday"
+msgstr "Divendres"
+
+#: demomentsomtres-WC-delivery-custom.php:353
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Saturday"
+msgstr "Dissabte"
+
+#: demomentsomtres-WC-delivery-custom.php:368
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Column (;) separated list of delivery holidays dates in format YYYY-M-D."
+msgstr "Llista separada per punt i coma (;) dels dies festius en format AAAA-M-D."
+
+#: demomentsomtres-WC-delivery-custom.php:370
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "If month or day is lower than 10, please use ONLY ONE DIGIT"
+msgstr "Si el mes o el dia és inferior a 10, useu NOMÉS UN DÍGIT"
+
+#: demomentsomtres-WC-delivery-custom.php:386
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Message to be shown just after the Delivery Instructions title"
+msgstr "Missatge que es mostrarà just immediatament després del títol d'instruccions de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:388
+#: demomentsomtres-WC-delivery-custom.php:406
+#: demomentsomtres-WC-delivery-custom.php:426
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "HTML allowed"
+msgstr "Es permet HTML"
+
+#: demomentsomtres-WC-delivery-custom.php:397
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "If you need help, don&apos;t hesitate to contact us."
+msgstr "Si necessites més ajuda, no dubtis en contactar amb nosaltres."
+
+#: demomentsomtres-WC-delivery-custom.php:404
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Message to be show just at the bottom of Delivery Instructions focused on Help the user."
+msgstr "Missatge que es mostrarà al peu de les instruccions de lliurament encarat a oferir ajuda a l'usuari."
+
+#: demomentsomtres-WC-delivery-custom.php:408
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "If you set an url, please put it as an ABSOLUTE address"
+msgstr "Si introduiu un enllaç, assegureu-vos que la url sigui ABSOLUTA i no relativa"
+
+#: demomentsomtres-WC-delivery-custom.php:709
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "As soon as possible"
+msgstr "Tan aviat com puguem"
+
+#: demomentsomtres-WC-delivery-custom.php:715
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Delivery information"
+msgstr "Informació de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:716
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Date"
+msgstr "Dia"
+
+#: demomentsomtres-WC-delivery-custom.php:723
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "We will try to deliver this order to"
+msgstr "Lliurarem la comanda a"
+
+#: demomentsomtres-WC-delivery-custom.php:154
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Javascript Date Format"
+msgstr "Format de data de JavaScript"
+
+#: demomentsomtres-WC-delivery-custom.php:155
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "php Date Format"
+msgstr "Format de data de php"
+
+#: demomentsomtres-WC-delivery-custom.php:159
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Message at the top of checkout page"
+msgstr "Missatge a la capçalera de la pàgina de checkout i de carretó"
+
+#: demomentsomtres-WC-delivery-custom.php:287
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Date format to use in the datepicker."
+msgstr "Format de data que s'usarà al calendari."
+
+#: demomentsomtres-WC-delivery-custom.php:300
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Date format for php equivalent to the javascript one."
+msgstr "Format de data de php per aconseguir el mateix resultat que amb javascript."
+
+#: demomentsomtres-WC-delivery-custom.php:424
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Message to be shown every time that someone enters checkout"
+msgstr "Missatge que es mostrarà cada vegada que algú entri a checkout."
+
+#: demomentsomtres-WC-delivery-custom.php:514
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Main Contact"
+msgstr "Contacte principal"
+
+#: demomentsomtres-WC-delivery-custom.php:516
+#: demomentsomtres-WC-delivery-custom.php:536
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Name"
+msgstr "Nom"
+
+#: demomentsomtres-WC-delivery-custom.php:523
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Main phone"
+msgstr "Telèfon principal"
+
+#: demomentsomtres-WC-delivery-custom.php:534
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Alternative Contact"
+msgstr "Contacte alternatiu"
+
+#: demomentsomtres-WC-delivery-custom.php:543
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Alterantive Phone"
+msgstr "Telèfon alternatiu"
+
+#: demomentsomtres-WC-delivery-custom.php:599
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Please enter a Delivery Date"
+msgstr "Cal informar una data de lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:601
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Please enter a Main Contact and a Phone Number"
+msgstr "Cal informar com a mínim un contacte principal i el seu telèfon"
+
+#: demomentsomtres-WC-delivery-custom.php:603
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Select at least one Delivery Range"
+msgstr "Cal escollir com a mínim una franja horària pel lliurament"
+
+#: demomentsomtres-WC-delivery-custom.php:732
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Payment"
+msgstr "Pagament"
+
+#: demomentsomtres-WC-delivery-custom.php:733
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "Payment Method"
+msgstr "Mètode de pagament"
+
+#: demomentsomtres-WC-delivery-custom.php:726
+#@ DeMomentSomTres-WC-deliveryCustomization
+msgid "if we cannot reach the first contact we will try to deliver the order to"
+msgstr "i si no a"
+
