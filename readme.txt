@@ -3,7 +3,7 @@ Contributors: marcqueralt
 Donate link: http://demomentsomtres.com/english/wordpress-plugins/woocommerce-delivery-customization/
 Tags: woocommerce, delivery, delivery date
 Requires at least: 3.9.1
-Tested up to: 3.9.1
+Tested up to: 4.4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,10 @@ TBD
 TBD
 
 == Changelog ==
+
+= 1.4 =
+* Prevent showing contacts in checkout
+* Bug: Javascript fails if no holidays selected
 
 = 1.3.1 =
 * Catalan Translation: canvi de la persona de segona del plural a segona del singular
